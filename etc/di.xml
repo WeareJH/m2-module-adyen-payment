@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Jh\AdyenPayment\Api\AdyenThreeDS1ProcessInterface"
+                type="Jh\AdyenPayment\Service\AdyenThreeDS1Process" />
+    <preference for="Jh\AdyenPayment\Api\AdyenResultInterface"
+                type="Jh\AdyenPayment\Service\AdyenResult" />
+    <preference for="Jh\AdyenPayment\Api\Data\ResultResponseInterface"
+                type="Jh\AdyenPayment\Model\ResultResponse" />
+    <preference for="Jh\AdyenPayment\Api\AdyenRedirectInterface"
+                type="Jh\AdyenPayment\Service\AdyenRedirect" />
+    <preference for="Jh\AdyenPayment\Api\Data\RedirectResponseInterface"
+                type="Jh\AdyenPayment\Model\RedirectResponse" />
+
+    <type name="Adyen\Payment\Helper\Data">
+        <plugin name="Jh_AdyenPayment::helper_data" type="Jh\AdyenPayment\Plugin\CustomOriginPlugin"/>
+    </type>
+
+    <type name="Adyen\Payment\Api\AdyenOrderPaymentStatusInterface">
+        <plugin name="Jh_AdyenPayment::threeds1_redirect_plugin" type="Jh\AdyenPayment\Plugin\ThreeDS1RedirectPlugin" />
+    </type>
+
+    <type name="Adyen\Payment\Api\AdyenThreeDS2ProcessInterface">
+        <plugin name="Jh_AdyenPayment::threeds2_restore_quote" type="Jh\AdyenPayment\Plugin\ThreeDS2RestoreQuotePlugin"/>
+    </type>
+
+    <virtualType name="AdyenPaymentHppAuthorizeRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="transaction" xsi:type="string">Jh\AdyenPayment\Gateway\Request\CheckoutDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

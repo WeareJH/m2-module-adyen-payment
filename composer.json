@@ -1,0 +1,15 @@
+{
+  "name": "wearejh/m2-module-adyen-payment",
+  "description": "Adyen Payment module extension to support headless frontend",
+  "require": {
+    "adyen/module-payment": "^6.6"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Jh\\AdyenPayment\\": ""
+    }
+  }
+}
