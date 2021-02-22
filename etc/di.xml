@@ -10,6 +10,8 @@
                 type="Jh\AdyenPayment\Service\AdyenRedirect" />
     <preference for="Jh\AdyenPayment\Api\Data\RedirectResponseInterface"
                 type="Jh\AdyenPayment\Model\RedirectResponse" />
+    <preference for="Jh\AdyenPayment\Api\Data\ConfigInterface"
+                type="Jh\AdyenPayment\Model\Config" />
 
     <type name="Adyen\Payment\Helper\Data">
         <plugin name="Jh_AdyenPayment::helper_data" type="Jh\AdyenPayment\Plugin\CustomOriginPlugin"/>
