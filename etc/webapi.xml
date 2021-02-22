@@ -23,7 +23,7 @@
             <resource ref="anonymous" />
         </resources>
     </route>
-    <route url="/V1/adyen/environment" method="POST">
+    <route url="/V1/adyen/environment" method="GET">
         <service class="Jh\AdyenPayment\Api\Data\ConfigInterface" method="getEnvironment"/>
         <resources>
             <resource ref="anonymous" />
