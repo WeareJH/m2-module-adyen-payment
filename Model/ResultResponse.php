@@ -23,6 +23,16 @@ class ResultResponse implements ResultResponseInterface
         $this->orderId = $orderId;
     }
 
+    public function getCartId(): string
+    {
+        return $this->cartId;
+    }
+
+    public function setCartId(int $cartId): void
+    {
+        $this->cartId = $cartId;
+    }
+
     public function getQuoteId(): int
     {
         return $this->quoteId;

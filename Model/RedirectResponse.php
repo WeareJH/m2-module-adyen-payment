@@ -21,6 +21,16 @@ class RedirectResponse implements RedirectResponseInterface
         $this->orderId = $orderId;
     }
 
+    public function getCartId(): string
+    {
+        return $this->cartId;
+    }
+
+    public function setCartId(int $cartId): void
+    {
+        $this->cartId = $cartId;
+    }
+
     public function getRedirectUrl(): string
     {
         return $this->redirectUrl;

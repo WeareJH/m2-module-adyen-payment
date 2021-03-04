@@ -22,7 +22,7 @@ class AdyenRedirect implements AdyenRedirectInterface
         $this->redirectResponseFactory = $redirectResponseFactory;
     }
 
-    public function execute(int $orderId): RedirectResponseInterface
+    public function execute(int $orderId, string $cartId): RedirectResponseInterface
     {
         $order = $this->orderRepository->get($orderId);
         $redirectUrl = '';
@@ -35,6 +35,7 @@ class AdyenRedirect implements AdyenRedirectInterface
         $response = $this->redirectResponseFactory->create();
 
         $response->setOrderId($orderId);
+        $response->setCartId($cartId);
         $response->setRedirectUrl($redirectUrl);
 
         return $response;

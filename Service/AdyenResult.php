@@ -63,7 +63,7 @@ class AdyenResult implements AdyenResultInterface
         $this->session = $session;
     }
 
-    public function execute(int $orderId, string $response, string $resultCode = null): ResultResponseInterface
+    public function execute(int $orderId, string $cartId, string $response, string $resultCode = null): ResultResponseInterface
     {
         $order = $this->orderRepository->get($orderId);
 
@@ -81,6 +81,7 @@ class AdyenResult implements AdyenResultInterface
         /** @var ResultResponseInterface $resultResponse */
         $resultResponse = $this->resultResponseFactory->create();
         $resultResponse->setOrderId($orderId);
+        $resultResponse->setCartId($cartId);
         $resultResponse->setQuoteId((int) $quote->getId());
         $resultResponse->setResponse(strtolower($authResult ?? 'unknown'));
         $resultResponse->setMessage($this->getMessage($authResult));

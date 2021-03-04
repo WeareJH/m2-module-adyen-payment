@@ -18,6 +18,17 @@ interface ResultResponseInterface
     public function setOrderId(int $orderId): void;
 
     /**
+    * @return string
+    */
+    public function getCartId(): string;
+
+    /**
+     * @param string $cartId
+     * @return void
+     */
+    public function setCartId(string $cartId): void;
+
+    /**
      * @return int
      */
     public function getQuoteId(): int;

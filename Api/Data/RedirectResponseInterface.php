@@ -18,6 +18,17 @@ interface RedirectResponseInterface
     public function setOrderId(int $orderId): void;
 
     /**
+    * @return string
+    */
+    public function getCartId(): string;
+
+    /**
+     * @param string $cartId
+     * @return void
+     */
+    public function setCartId(string $cartId): void;
+
+    /**
      * @return string
      */
     public function getRedirectUrl(): string;
