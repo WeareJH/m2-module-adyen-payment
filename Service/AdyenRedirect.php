@@ -8,6 +8,7 @@ use Jh\AdyenPayment\Api\AdyenRedirectInterface;
 use Jh\AdyenPayment\Api\Data\RedirectResponseInterface;
 use Jh\AdyenPayment\Api\Data\RedirectResponseInterfaceFactory;
 use Magento\Sales\Api\OrderRepositoryInterface;
+use Magento\Sales\Model\Order;
 
 class AdyenRedirect implements AdyenRedirectInterface
 {
@@ -29,6 +30,12 @@ class AdyenRedirect implements AdyenRedirectInterface
 
         if ($order->getPayment()) {
             $redirectUrl = $order->getPayment()->getAdditionalInformation('redirectUrl') ?? '';
+        }
+
+        if (!empty($redirectUrl)) {
+            $order->setState(Order::STATE_PENDING_PAYMENT);
+            $order->setStatus(Order::STATE_PENDING_PAYMENT);
+            $this->orderRepository->save($order);
         }
 
         /** @var RedirectResponseInterface $response */
