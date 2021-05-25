@@ -34,7 +34,8 @@ class AdyenThreeDS1Process implements AdyenThreeDS1ProcessInterface
 
     public function authorisePayment($payment, string $md, $paRes) : void
     {
-        if ($payment->getAdditionalInformation('md') === $md) {
+        $actionData = $payment->getAdditionalInformation('action');
+        if (isset($actionData['data']['MD']) && $actionData['data']['MD']  === $md) {
             $result = $this->authorise3d($payment, $paRes);
             $responseCode = $result['resultCode'];
             if ($responseCode == 'Authorised') {
@@ -89,7 +90,7 @@ class AdyenThreeDS1Process implements AdyenThreeDS1ProcessInterface
         return $service->paymentsDetails([
             'paymentData' => $payment->getAdditionalInformation('paymentData'),
             'details' => [
-                'MD' => $payment->getAdditionalInformation('md'),
+                'MD' => $payment->getAdditionalInformation('action')['data']['MD'],
                 'PaRes' => $paRes
             ]
         ]);
