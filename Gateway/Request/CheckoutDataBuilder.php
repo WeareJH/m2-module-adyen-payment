@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Jh\AdyenPayment\Gateway\Request;
 
 use Adyen\Payment\Gateway\Request\CheckoutDataBuilder as OrigCheckoutDataBuilder;
+use Adyen\Payment\Helper\ChargedCurrency;
 use Adyen\Payment\Helper\Data;
 use Adyen\Payment\Model\Gender;
+use Magento\Framework\UrlInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Quote\Api\CartRepositoryInterface;
 
@@ -18,9 +20,11 @@ class CheckoutDataBuilder extends OrigCheckoutDataBuilder
         Data $adyenHelper,
         StoreManagerInterface $storeManager,
         CartRepositoryInterface $cartRepository,
-        Gender $gender
+        Gender $gender,
+        ChargedCurrency $chargedCurrency,
+        UrlInterface $url
     ) {
-        parent::__construct($adyenHelper, $storeManager, $cartRepository, $gender);
+        parent::__construct($adyenHelper, $storeManager, $cartRepository, $gender, $chargedCurrency, $url);
 
         $this->adyenHelper = $adyenHelper;
     }
