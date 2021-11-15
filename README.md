@@ -2,6 +2,8 @@
 
 The module extends Adyen_Payment module to allow using it with headless frontends.
 
+This module was required for Adyen module versions prior to 7.0. From 7.0 forward the Adyen module itself supports headless frontends.
+
 ### Installation
 
 ```sh
