@@ -28,7 +28,23 @@
     <virtualType name="AdyenPaymentHppAuthorizeRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
         <arguments>
             <argument name="builders" xsi:type="array">
-                <item name="transaction" xsi:type="string">Jh\AdyenPayment\Gateway\Request\CheckoutDataBuilder</item>
+                <item name="returnurl" xsi:type="string">Jh\AdyenPayment\Gateway\Request\ReturnUrlDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AdyenPaymentOneclickAuthorizeRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="returnurl" xsi:type="string">Jh\AdyenPayment\Gateway\Request\ReturnUrlDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AdyenPaymentCcAuthorizeRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="returnurl" xsi:type="string">Jh\AdyenPayment\Gateway\Request\ReturnUrlDataBuilder</item>
             </argument>
         </arguments>
     </virtualType>

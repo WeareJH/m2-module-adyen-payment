@@ -1,7 +1,7 @@
 {
   "name": "wearejh/m2-module-adyen-payment",
   "description": "Adyen Payment module extension to support headless frontend",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "require": {
     "adyen/module-payment": ">=7.3.2"
   },
