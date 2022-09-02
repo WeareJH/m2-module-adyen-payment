@@ -7,6 +7,7 @@ namespace Jh\AdyenPayment\Gateway\Request;
 use Adyen\Payment\Gateway\Request\ReturnUrlDataBuilder as OrigReturnUrlDataBuilder;
 use Adyen\Payment\Helper\BaseUrlHelper;
 use Adyen\Payment\Helper\Data;
+use Adyen\Payment\Helper\ReturnUrlHelper;
 use Magento\Payment\Gateway\Data\PaymentDataObject;
 use Magento\Payment\Gateway\Helper\SubjectReader;
 use Magento\Sales\Model\Order;
@@ -17,15 +18,15 @@ class ReturnUrlDataBuilder extends OrigReturnUrlDataBuilder
     private $adyenHelper;
 
     public function __construct(
-        Data $adyenHelper,
-        BaseUrlHelper $baseUrlHelper,
-        StoreManagerInterface $storeManager
+        ReturnUrlHelper $returnUrlHelper,
+        StoreManagerInterface $storeManager,
+        Data $adyenHelper
     ) {
-        parent::__construct($baseUrlHelper, $storeManager);
+        parent::__construct($returnUrlHelper, $storeManager);
         $this->adyenHelper = $adyenHelper;
     }
 
-    public function build(array $buildSubject)
+    public function build(array $buildSubject): array
     {
         $request = parent::build($buildSubject);
 
