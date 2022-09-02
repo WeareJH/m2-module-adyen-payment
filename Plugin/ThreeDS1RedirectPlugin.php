@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Jh\AdyenPayment\Plugin;
 
-use Adyen\Payment\Model\AdyenOrderPaymentStatus;
+use Adyen\Payment\Model\Api\AdyenOrderPaymentStatus;
 use Adyen\Payment\Model\Ui\AdyenCcConfigProvider;
 use Adyen\Payment\Model\Ui\AdyenOneclickConfigProvider;
 use Magento\Sales\Api\OrderRepositoryInterface;
