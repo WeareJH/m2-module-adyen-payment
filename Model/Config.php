@@ -16,8 +16,13 @@ class Config implements ConfigInterface
         $this->adyenHelper = $adyenHelper;
     }
 
-    public function getEnvironment(): string
+    public function getConfig(): string
     {
-        return $this->adyenHelper->isDemoMode() ? 'test' : 'live';
+        $response = [
+            'environment' => $this->adyenHelper->isDemoMode() ? 'test' : 'live',
+            'clientKey' => $this->adyenHelper->getClientKey(),
+        ];
+
+        return json_encode($response);
     }
 }

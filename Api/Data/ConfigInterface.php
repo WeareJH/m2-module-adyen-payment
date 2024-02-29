@@ -9,5 +9,5 @@ interface ConfigInterface
     /**
      * @return string
      */
-    public function getEnvironment(): string;
+    public function getConfig(): string;
 }
