@@ -1,30 +1,12 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/adyen/threeDS1Process" method="POST">
-        <service class="Jh\AdyenPayment\Api\AdyenThreeDS1ProcessInterface" method="authorise"/>
-        <resources>
-            <resource ref="anonymous" />
-        </resources>
-    </route>
     <route url="/V1/adyen/threeDSAbort" method="POST">
         <service class="Jh\AdyenPayment\Api\AdyenThreeDSAbortInterface" method="abort"/>
         <resources>
             <resource ref="anonymous" />
         </resources>
     </route>
-    <route url="/V1/adyen/result" method="POST">
-        <service class="Jh\AdyenPayment\Api\AdyenResultInterface" method="execute"/>
-        <resources>
-            <resource ref="anonymous" />
-        </resources>
-    </route>
-    <route url="/V1/adyen/redirect" method="POST">
-        <service class="Jh\AdyenPayment\Api\AdyenRedirectInterface" method="execute"/>
-        <resources>
-            <resource ref="anonymous" />
-        </resources>
-    </route>
-    <route url="/V1/adyen/environment" method="GET">
-        <service class="Jh\AdyenPayment\Api\Data\ConfigInterface" method="getEnvironment"/>
+    <route url="/V1/adyen/config" method="GET">
+        <service class="Jh\AdyenPayment\Api\Data\ConfigInterface" method="getConfig"/>
         <resources>
             <resource ref="anonymous" />
         </resources>
