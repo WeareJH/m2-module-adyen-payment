@@ -19,9 +19,10 @@ class Config implements ConfigInterface
      */
     public function getConfig(): string
     {
+        $mode = $this->adyenConfig->isDemoMode() ? 'test' : 'live';
         $response = [
-            'environment' => $this->adyenConfig->isDemoMode() ? 'test' : 'live',
-            'clientKey' => $this->adyenConfig->getClientKey(),
+            'environment' => $mode,
+            'clientKey' => $this->adyenConfig->getClientKey($mode),
         ];
 
         return json_encode($response, JSON_THROW_ON_ERROR);
