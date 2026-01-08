@@ -4,11 +4,6 @@
     <preference for="Jh\AdyenPayment\Api\Data\ConfigInterface"
                 type="Jh\AdyenPayment\Model\Config" />
 
-    <type name="Adyen\Payment\Api\AdyenThreeDS2ProcessInterface">
-        <plugin name="Jh_AdyenPayment::threeds2_restore_quote"
-                type="Jh\AdyenPayment\Plugin\ThreeDS2RestoreQuotePlugin"/>
-    </type>
-
     <preference for="Jh\AdyenPayment\Api\AdyenThreeDSAbortInterface"
                 type="Jh\AdyenPayment\Service\AdyenThreeDSAbort" />
 </config>
